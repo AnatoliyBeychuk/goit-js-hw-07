@@ -14,6 +14,7 @@ const createBoxes = function(amount)
         const element = document.createElement('div');
         element.style.width = `${width}px`;
         element.style.height = `${height}px`;
+        element.style.border = `1px solid lightgray`;
         element.style.background = `#${Math.round(Math.random()*1000)}`;
         if(i > 0)
         {
@@ -26,7 +27,6 @@ const createBoxes = function(amount)
     }
     refBoxesContainer.append(...elements);
 }
-
 
 refCreateBtn.addEventListener('click', () =>
 {
