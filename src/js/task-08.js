@@ -24,7 +24,8 @@ const createBoxes = function(amount)
         element.style.width = `${width}px`;
         element.style.height = `${height}px`;
         element.style.border = `1px solid lightgray`;
-        element.style.background = `#${Math.round(Math.random()*1000)}`;
+        element.style.backgroundColor = '#' + (Math.random().toString(16) + '000000').substring(2,8).toUpperCase();
+        console.log('backgroundColor: ' + element.style.backgroundColor);
         if(i > 0)
         {
             element.style.width = `${width + step}px`;
