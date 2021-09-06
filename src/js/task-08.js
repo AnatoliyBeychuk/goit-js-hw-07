@@ -5,9 +5,18 @@ const refClearBtn = document.querySelector('[data-action="destroy"]');
 
 const createBoxes = function(amount)
 {
-    const width = 30;
-    const height = 30;
+    //По дефолту высота и ширина 30px
+    let width = 30;
+    let height = 30;
     let step = 10;
+    //Если в контейнере уже есть элементы, то узнаем высоту и ширину у последнего
+    //и уже используем их как стартовые
+    if(refBoxesContainer.childElementCount > 0)
+    {
+        const lastElement = refBoxesContainer.lastChild;
+        width = lastElement.clientWidth + step;
+        height = lastElement.clientHeight + step;
+    }
     const elements = [];
     for(let i = 0; i < amount; i += 1)
     {
@@ -23,9 +32,10 @@ const createBoxes = function(amount)
             step += 10;
         }
         elements.push(element);
-
     }
     refBoxesContainer.append(...elements);
+    //Очищаю Input после создания элементов
+    refInputNumber.value = '';
 }
 
 refCreateBtn.addEventListener('click', () =>
